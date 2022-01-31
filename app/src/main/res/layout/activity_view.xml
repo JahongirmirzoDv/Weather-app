@@ -3,16 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
+    android:alpha="0"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:alpha="0.4"
-    android:background="@drawable/gradient"
     tools:context=".ViewActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop" />
 
     <ProgressBar
         android:id="@+id/progress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -53,6 +59,7 @@
         app:layout_constraintTop_toBottomOf="@+id/ln1" />
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
@@ -69,131 +76,165 @@
         android:layout_marginTop="20dp"
         android:textAlignment="center"
         android:textColor="#EDDFDF"
-        android:textSize="20sp"
+        android:textSize="25sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/temp" />
 
-    <LinearLayout
+    <io.alterac.blurkit.BlurLayout
         android:id="@+id/ln2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="80dp"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:padding="15dp"
+        android:layout_marginEnd="10dp"
+        app:blk_blurRadius="12"
+        app:blk_cornerRadius="15dp"
+        app:blk_downscaleFactor="0.12"
+        app:blk_fps="70"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/main">
 
-        <ImageView
-            android:id="@+id/icon"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:scaleType="centerCrop" />
-
-        <TextView
-            android:id="@+id/name2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <Space
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="15dp">
 
-        <TextView
-            android:id="@+id/temp2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-    </LinearLayout>
+            <ImageView
+                android:id="@+id/icon"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:scaleType="centerCrop" />
 
-    <LinearLayout
+            <TextView
+                android:id="@+id/name2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/temp2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </io.alterac.blurkit.BlurLayout>
+
+    <io.alterac.blurkit.BlurLayout
         android:id="@+id/ln3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:padding="15dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="10dp"
+        app:blk_blurRadius="12"
+        app:blk_cornerRadius="15dp"
+        app:blk_downscaleFactor="0.12"
+        app:blk_fps="70"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ln2">
 
-        <ImageView
-
-            android:id="@+id/wind_icon"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:scaleType="centerCrop" />
-
-        <TextView
-            android:id="@+id/wind_name2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <Space
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="15dp">
 
-        <TextView
-            android:id="@+id/wind_temp2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-    </LinearLayout>
+            <ImageView
+                android:id="@+id/wind_icon"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:scaleType="centerCrop" />
 
-    <LinearLayout
+            <TextView
+                android:id="@+id/wind_name2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/wind_temp2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </io.alterac.blurkit.BlurLayout>
+
+    <io.alterac.blurkit.BlurLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:padding="15dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="10dp"
+        app:blk_blurRadius="12"
+        app:blk_cornerRadius="15dp"
+        app:blk_downscaleFactor="0.12"
+        app:blk_fps="70"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ln3">
 
-        <ImageView
-
-            android:id="@+id/humidity_icon"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:scaleType="centerCrop" />
-
-        <TextView
-            android:id="@+id/humidity_name2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <Space
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="15dp">
 
-        <TextView
-            android:id="@+id/humidity_temp2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-    </LinearLayout>
+            <ImageView
 
+                android:id="@+id/humidity_icon"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:scaleType="centerCrop" />
+
+            <TextView
+                android:id="@+id/humidity_name2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/humidity_temp2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </io.alterac.blurkit.BlurLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
